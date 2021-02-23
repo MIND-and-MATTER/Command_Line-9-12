@@ -1,1 +1,60 @@
+~/command-line-9-12-lucca001$ file /etc/shadow
+/etc/shadow: regular file, no read permission
+~/command-line-9-12-lucca001$ more /etc/shadow
+more: cannot open /etc/shadow: Permission denied
+~/command-line-9-12-lucca001$ id
+uid=1000(runner) gid=1000(runner) groups=1000(runner)
+~/command-line-9-12-lucca001$ > foo.txt
+~/command-line-9-12-lucca001$ ls -l foo.txt 
+-rw-r--r-- 1 runner runner 0 Feb 23 20:47 foo.txt
 
+~/command-line-9-12-lucca001$ > foo.txt 
+~/command-line-9-12-lucca001$ ls -l foo.txt
+-rw-r--r-- 1 runner runner 0 Feb 23 21:01 foo.txt
+~/command-line-9-12-lucca001$ chmod 600 foo.txt 
+~/command-line-9-12-lucca001$ ls -l foo.txt-rw------- 1 runner runner 0 Feb 23 21:01 foo.txt
+~/command-line-9-12-lucca001$ 
+
+~/command-line-9-12-lucca001$ rm -f foo.txt
+~/command-line-9-12-lucca001$ umask
+0022
+~/command-line-9-12-lucca001$ > foo.txt
+~/command-line-9-12-lucca001$ ls -l foo.txt
+-rw-r--r-- 1 runner runner 0 Feb 23 21:07 foo.txt
+
+~/command-line-9-12-lucca001$ rm foo.txt 
+~/command-line-9-12-lucca001$ umask 0000
+~/command-line-9-12-lucca001$ > foo.txt
+~/command-line-9-12-lucca001$ ls -l foo.txt 
+-rw-rw-rw- 1 runner runner 0 Feb 23 21:17 foo.txt
+~/command-line-9-12-lucca001$ rm foo.txt; umask 0002
+
+~/command-line-9-12-lucca001$ su [-[l]] [user]
+No passwd entry for user '[-[l]]'
+~/command-line-9-12-lucca001$ su -
+Password: 
+su: Authentication failure
+~/command-line-9-12-lucca001$ su -c 'ls -l /root/*'
+Password: 
+,su: Authentication failure
+~/command-line-9-12-lucca001$ ,
+
+~/command-line-9-12-lucca001$ sudo backup_scriptbash: sudo: command not found
+~/command-line-9-12-lucca001$ sudo -l
+bash: sudo: command not found
+~/command-line-9-12-lucca001$ 
+~/command-line-9-12-lucca001$ 
+~/command-line-9-12-lucca001$ sudo cp myfile.txt ~tony
+bash: sudo: command not found
+~/command-line-9-12-lucca001$ 
+
+~/command-line-9-12-lucca001$ sudo mkdir /usr/local/share/music
+bash: sudo: command not found
+~/command-line-9-12-lucca001$
+
+~/command-line-9-12-lucca001$ passwd
+Changing password for runner.
+(current) UNIX password: 
+passwd: Authentication token manipulation error
+passwd: password unchanged
+~/command-line-9-12-lucca001$ 
