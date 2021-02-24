@@ -1,1 +1,138 @@
+Course Concepts: Prompt, Shell, Directory, File permission, Argument.
 
+~/command-line-9-12-lucca001$ pwd
+/home/runner/command-line-9-12-lucca001
+~/command-line-9-12-lucca001$ ls -l
+total 20
+-rw-r--r-- 1 runner runner  160 Feb 24 03:36 10-Processes.txt
+-rw-r--r-- 1 runner runner    1 Feb 23 20:40 11-TheEnvironment.txt
+-rw-r--r-- 1 runner runner    1 Feb 23 20:40 12-AGentleIntroductionToVim.txt
+-rw-r--r-- 1 runner runner 2222 Feb 23 21:50 9-Permissions.txt
+-rw-r--r-- 1 runner runner  246 Feb 23 20:40 README.md
+~/command-line-9-12-lucca001$ ps
+    PID TTY          TIME CMD
+     39 pts/4    00:00:00 bash
+     66 pts/4    00:00:00 ps
+~/command-line-9-12-lucca001$ ps x
+    PID TTY      STAT   TIME COMMAND
+      1 ?        Ssl    0:05 /inject/init
+     15 pts/0    Ssl+   0:00 prybar-python3 -q --ps1 ??[33m???[00m
+     27 pts/1    Ss+    0:00 bash --norc
+     28 ?        S      0:00 /bin/bash /usr/bin/run-language-server -
+     30 ?        Sl     0:01 /opt/virtualenvs/python3/bin/python3 /op
+     39 pts/4    Ss     0:00 bash --norc
+     67 pts/4    R+     0:00 ps x
+~/command-line-9-12-lucca001$ ps aux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+runner         1  0.7  0.0 1681632 16260 ?       Ssl  03:39   0:05 /inject/init
+runner        15  0.0  0.0 411940 11968 pts/0    Ssl+ 03:39   0:00 prybar-python3 -q --ps1 ??[33m???[00m?  -i
+runner        27  0.0  0.0  20184  3280 pts/1    Ss+  03:39   0:00 bash --norc
+runner        28  0.0  0.0  20052  3532 ?        S    03:39   0:00 /bin/bash /usr/bin/run-language-server -l python3
+runner        30  0.1  0.1 327680 50404 ?        Sl   03:39   0:01 /opt/virtualenvs/python3/bin/python3 /opt/virtualenvs/python3/bin/pyls 
+runner        39  0.0  0.0  20184  3656 pts/4    Ss   03:40   0:00 bash --norc
+runner        68  0.0  0.0  36080  3184 pts/4    R+   03:52   0:00 ps aux
+
+top - 03:53:21 up 11:03,  0 users,  load average: 21.36, 40.31, 45.5
+Tasks:   7 total,   1 running,   6 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 39.3 us, 29.0 sy,  0.0 ni, 25.9 id,  4.7 wa,  0.0 hi,  1.1 
+KiB Mem : 26694668 total,   499536 free, 22529776 used,  3665356 buf
+KiB Swap:        0 total,        0 free,        0 used.  4323492 ava
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM 
+      1 runner    20   0 1683552  22108  11888 S   0.7  0.1 
+     70 runner    20   0   40368   3512   3060 R   0.3  0.0 
+     15 runner    20   0  411940  11968   8000 S   0.0  0.0 
+     27 runner    20   0   20184   3280   3052 S   0.0  0.0 
+     28 runner    20   0   20052   3532   3184 S   0.0  0.0 
+     30 runner    20   0  327680  50404  11876 S   0.0  0.2 
+     39 runner    20   0   20184   3656   3216 S   0.0  0.0 
+
+ ~/command-line-9-12-lucca001$ xlogo
+Warning: Cannot convert string "xlogo32" to type Pixmap
+^C
+~/command-line-9-12-lucca001$ xlogo &
+[1] 716
+~/command-line-9-12-lucca001$ Warning: Cannot convert string "xlogo32" to type Pixmap
+^C
+~/command-line-9-12-lucca001$ ps
+    PID TTY          TIME CMD
+    122 pts/4    00:00:00 bash
+    716 pts/4    00:00:00 xlogo
+    717 pts/4    00:00:00 ps
+~/command-line-9-12-lucca001$ jobs
+[1]+  Running                 xlogo &
+~/command-line-9-12-lucca001$ fg %1
+xlogo
+^Z
+[1]+  Stopped                 xlogo
+~/command-line-9-12-lucca001$ bg %1
+[1]+ xlogo &
+~/command-line-9-12-lucca001$ xlogo &
+[2] 734
+~/command-line-9-12-lucca001$ Warning: Cannot convert string "xlogo32" to type Pixmap
+kill
+kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
+~/command-line-9-12-lucca001$ kill
+kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
+~/command-line-9-12-lucca001$ xlogo
+Warning: Cannot convert string "xlogo32" to type Pixmap
+^Z
+[3]+  Stopped                 xlogo
+~/command-line-9-12-lucca001$ xlogo &
+[4] 736
+~/command-line-9-12-lucca001$ Warning: Cannot convert string "xlogo32" to type Pixmap
+^C
+~/command-line-9-12-lucca001$ kill 736
+~/command-line-9-12-lucca001$ ps
+    PID TTY          TIME CMD
+    122 pts/4    00:00:00 bash
+    716 pts/4    00:00:00 xlogo
+    734 pts/4    00:00:00 xlogo
+    735 pts/4    00:00:00 xlogo
+    737 pts/4    00:00:00 ps
+[4]-  Terminated              xlogo
+~/command-line-9-12-lucca001$ kill 716
+~/command-line-9-12-lucca001$ kill 734
+[1]   Terminated              xlogo
+~/command-line-9-12-lucca001$ kill 735
+[2]-  Terminated              xlogo
+~/command-line-9-12-lucca001$ ps
+    PID TTY          TIME CMD
+    122 pts/4    00:00:00 bash
+    735 pts/4    00:00:00 xlogo
+    738 pts/4    00:00:00 ps
+~/command-line-9-12-lucca001$ kill 735
+~/command-line-9-12-lucca001$ 
+
+~/command-line-9-12-lucca001$ xlogo &
+[4] 748
+~/command-line-9-12-lucca001$ Warning: Cannot convert string "xlogo32" to type Pixmap
+^C
+~/command-line-9-12-lucca001$ kill -4 748
+~/command-line-9-12-lucca001$ xlogo &
+[5] 757
+[4]   Illegal instruction     (core dumped) xlogo
+~/command-line-9-12-lucca001$ Warning: Cannot convert string "xlogo32" to type Pixmap
+^C
+~/command-line-9-12-lucca001$ kill -INT 757
+~/command-line-9-12-lucca001$ xlogo &
+[6] 758
+[5]   Interrupt               xlogo
+~/command-line-9-12-lucca001$ Warning: Cannot convert string "xlogo32" to type Pixmap
+^C
+~/command-line-9-12-lucca001$ kill -SIGINT 758
+~/command-line-9-12-lucca001$ xlogo &
+[7] 767
+[6]   Interrupt               xlogo
+~/command-line-9-12-lucca001$ Warning: Cannot convert string "xlogo32" to type Pixmap
+
+~/command-line-9-12-lucca001$ xlogo &
+[8] 768
+~/command-line-9-12-lucca001$ Warning: Cannot convert string "xlogo32" to type Pixmap
+
+~/command-line-9-12-lucca001$ killall xlogo
+[7]   Terminated              xlogo
+[8]-  Terminated              xlogo
+~/command-line-9-12-lucca001$ exit
+exit
+There are stopped jobs.
