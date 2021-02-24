@@ -1,1 +1,2 @@
+Course Concepts: Prompt, Shell, Directory, File permission, Argument, Redirection, Parameter, Metacharacter, Variable, Script, Comment, Delimiter, Text editor.
 

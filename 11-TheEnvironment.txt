@@ -1,1 +1,169 @@
+Course Concepts: Prompt, Shell, Directory, File permission, Argument, Redirection, Parameter, Metacharacter, Variable, Comment, Test editor.
 
+~/command-line-9-12-lucca001$ pwd
+/home/runner/command-line-9-12-lucca001
+~/command-line-9-12-lucca001$ ls
+10-Processes.txt         9-Permissions.txt
+11-TheEnvironment.txt        README.md
+12-AGentleIntroductionToVim.txt
+~/command-line-9-12-lucca001$ printenv | more
+LC_ALL=en_US.UTF-8
+LD_LIBRARY_PATH=/home/runner/.apt/usr/lib/x86_64-linux-g
+nu:/home/runner/.apt/usr/lib/i386-linux-gnu:/usr/local/l
+ib:/home/runner/.apt/usr/lib
+XDG_CONFIG_HOME=/config
+LANG=en_US.UTF-8
+DISPLAY=:0
+REPL_SLUG=command-line-9-12-lucca001
+REPL_IMAGE=gcr.io/marine-cycle-160323/polygott:161342323
+6
+HOSTNAME=64106711ead8
+REPL_ID=fb1d8c55-691d-4c99-b3f9-c3c917b38bc8
+VIRTUAL_ENV=/opt/virtualenvs/python3
+USER=runner
+REPL_OWNER=lucca001
+PROMPT_DIRTRIM=2
+PWD=/home/runner/command-line-9-12-lucca001
+HOME=/home/runner
+CPATH=/home/runner/.apt/usr/include:/home/runner/.apt/us
+r/include/x86_64-linux-gnu
+REPLIT_DB_URL=https://kv.repl.it/v0/eyJhbGciOiJIUzUxMiIs
+InR5cCI6IkpXVCJ9.eyJleHAiOjE2MTQyNTI2MTgsImlhdCI6MTYxNDE
+0MTAxOCwiaXNzIjoiY29ubWFuIiwiZGF0YWJhc2VfaWQiOiJmYjFkOGM
+1NS02OTFkLTRjOTktYjNmOS1jM2M5MTdiMzhiYzgifQ.gCfvW0TuSFN1
+B6gIW5UHcV8yj-Mg-OxYCQF3Uq7iz0pyAVcqQF0tQiyTy9r5m42tvdkB
+K2WIyupYIBmuGdvScQ
+LIBRARY_PATH=/home/runner/.apt/usr/lib/x86_64-linux-gnu:
+/home/runner/.apt/usr/lib/i386-linux-gnu:/usr/local/lib:
+/home/runner/.apt/usr/lib
+APT_OPTIONS=-o debug::nolocking=true -o dir::cache=/tmp/
+apt/cache -o dir::state=/tmp/apt/state -o dir::etc::sour
+celist=/tmp/apt/sources/sources.list
+TERM=xterm-256color
+REPL_LANGUAGE=python3
+SHLVL=1
+PYTHONPATH=/opt/virtualenvs/python3/lib/python3.8/site-p
+ackages
+CPPPATH=/home/runner/.apt/usr/include:/home/runner/.apt/
+usr/include/x86_64-linux-gnu
+PATH=/usr/local/go/bin:/opt/virtualenvs/python3/bin:/usr
+/GNUstep/System/Tools:/usr/GNUstep/Local/Tools:/home/run
+ner/.apt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbi
+n:/usr/bin:/sbin:/bin
+PS1=\[\033[01;34m\]\w\[\033[00m\]\$ 
+PKG_CONFIG_PATH=/home/runner/.apt/usr/lib/x86_64-linux-g
+nu/pkgconfig:/home/runner/.apt/usr/lib/i386-linux-gnu/pk
+gconfig:/home/runner/.apt/usr/lib/pkgconfig
+INCLUDE_PATH=/home/runner/.apt/usr/include:/home/runner/
+.apt/usr/include/x86_64-linux-gnu
+_=/usr/bin/printenv
+
+~/command-line-9-12-lucca001$ printenv USER
+runner
+~/command-line-9-12-lucca001$ set | more
+APT_OPTIONS='-o debug::nolocking=true -o dir::cache=/tmp/
+apt/cache -o dir::state=/tmp/apt/state -o dir::etc::sourc
+elist=/tmp/apt/sources/sources.list'
+BASH=/bin/bash
+BASHOPTS=cmdhist:complete_fullquote:expand_aliases:extquo
+te:force_fignore:hostcomplete:interactive_comments:progco
+mp:promptvars:sourcepath
+BASH_ALIASES=()
+BASH_ARGC=()
+BASH_ARGV=()
+BASH_CMDS=()
+BASH_LINENO=()
+BASH_SOURCE=()
+BASH_VERSINFO=([0]="4" [1]="4" [2]="20" [3]="1" [4]="rele
+ase" [5]="x86_64-pc-linux-gnu")
+BASH_VERSION='4.4.20(1)-release'
+COLUMNS=57
+CPATH=/home/runner/.apt/usr/include:/home/runner/.apt/usr
+/include/x86_64-linux-gnu
+CPPPATH=/home/runner/.apt/usr/include:/home/runner/.apt/u
+sr/include/x86_64-linux-gnu
+DIRSTACK=()
+DISPLAY=:0
+EUID=1000
+GROUPS=()
+HISTFILE=/home/runner/.bash_history
+HISTFILESIZE=500
+HISTSIZE=500
+HOME=/home/runner
+HOSTNAME=64106711ead8
+HOSTTYPE=x86_64
+IFS=$' \t\n'
+INCLUDE_PATH=/home/runner/.apt/usr/include:/home/runner/
+.apt/usr/include/x86_64-linux-gnu
+LANG=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+LD_LIBRARY_PATH=/home/runner/.apt/usr/lib/x86_64-linux-g
+nu:/home/runner/.apt/usr/lib/i386-linux-gnu:/usr/local/l
+ib:/home/runner/.apt/usr/lib
+LIBRARY_PATH=/home/runner/.apt/usr/lib/x86_64-linux-gnu:
+/home/runner/.apt/usr/lib/i386-linux-gnu:/usr/local/lib:
+/home/runner/.apt/usr/lib
+LINES=30
+MACHTYPE=x86_64-pc-linux-gnu
+MAILCHECK=60
+OPTERR=1
+OPTIND=1
+OSTYPE=linux-gnu
+PATH=/usr/local/go/bin:/opt/virtualenvs/python3/bin:/usr
+/GNUstep/System/Tools:/usr/GNUstep/Local/Tools:/home/run
+ner/.apt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbi
+n:/usr/bin:/sbin:/bin
+PIPESTATUS=([0]="0")
+PKG_CONFIG_PATH=/home/runner/.apt/usr/lib/x86_64-linux-g
+nu/pkgconfig:/home/runner/.apt/usr/lib/i386-linux-gnu/pk
+gconfig:/home/runner/.apt/usr/lib/pkgconfig
+PPID=1
+PROMPT_DIRTRIM=2
+PS1='\[\033[01;34m\]\w\[\033[00m\]\$ '
+PS2='> '
+PS4='+ '
+PWD=/home/runner/command-line-9-12-lucca001
+PYTHONPATH=/opt/virtualenvs/python3/lib/python3.8/site-p
+ackages
+REPLIT_DB_URL=https://kv.repl.it/v0/eyJhbGciOiJIUzUxMiIs
+InR5cCI6IkpXVCJ9.eyJleHAiOjE2MTQyNTI2MTgsImlhdCI6MTYxNDE
+0MTAxOCwiaXNzIjoiY29ubWFuIiwiZGF0YWJhc2VfaWQiOiJmYjFkOGM
+1NS02OTFkLTRjOTktYjNmOS1jM2M5MTdiMzhiYzgifQ.gCfvW0TuSFN1
+B6gIW5UHcV8yj-Mg-OxYCQF3Uq7iz0pyAVcqQF0tQiyTy9r5m42tvdkB
+K2WIyupYIBmuGdvScQ
+REPL_ID=fb1d8c55-691d-4c99-b3f9-c3c917b38bc8
+REPL_IMAGE=gcr.io/marine-cycle-160323/polygott:161342323
+6
+REPL_LANGUAGE=python3
+REPL_OWNER=lucca001
+REPL_SLUG=command-line-9-12-lucca001
+SHELL=/bin/bash
+SHELLOPTS=braceexpand:emacs:hashall:histexpand:history:i
+nteractive-comments:monitor
+SHLVL=1
+TERM=xterm-256color
+UID=1000
+USER=runner
+VIRTUAL_ENV=/opt/virtualenvs/python3
+XDG_CONFIG_HOME=/config
+_=USER
+
+~/command-line-9-12-lucca001$ echo $HOME
+/home/runner
+~/command-line-9-12-lucca001$ alias
+~/command-line-9-12-lucca001$ foo="This is some "
+~/command-line-9-12-lucca001$ echo $foo
+This is some
+~/command-line-9-12-lucca001$ foo=$foo"text"
+~/command-line-9-12-lucca001$ echo $foo
+This is some text
+~/command-line-9-12-lucca001$ gedit some_file
+bash: gedit: command not found
+~/command-line-9-12-lucca001$ export PATH
+~/command-line-9-12-lucca001$ gedit some_file
+bash: gedit: command not found
+~/command-line-9-12-lucca001$ cp .bashr.bak
+cp: missing destination file operand after '.bashr.bak'
+Try 'cp --help' for more information.
+~/command-line-9-12-lucca001$ nano .bashrc
+bash: nano: command not found
